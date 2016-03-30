@@ -1,0 +1,26 @@
+diff -up nvidia-xconfig-1.0/Makefile.default nvidia-xconfig-1.0/Makefile
+--- nvidia-xconfig-1.0/Makefile.default	2008-05-19 09:37:23.000000000 +0200
++++ nvidia-xconfig-1.0/Makefile	2008-06-06 23:34:47.000000000 +0200
+@@ -83,13 +83,12 @@ define INSTALL_RULE
+ 	$(INSTALL) -m 755 $< $(bindir)
+ 	mkdir -p $(mandir)
+ 	$(INSTALL) -m 644 $(MANPAGE) $(mandir)
+-	gzip -9f $(mandir)/$(MANPAGE)
+ endef
+ LLSCF=
+ endif
+ 
+ exec_prefix = $(prefix)
+-bindir = $(exec_prefix)/bin
++bindir = $(exec_prefix)/sbin
+ mandir = $(exec_prefix)/share/man/man1
+ 
+ NVIDIA_XCONFIG = nvidia-xconfig
+@@ -148,7 +147,6 @@ default: all
+ all: $(NVIDIA_XCONFIG) $(MANPAGE)
+ 
+ install: $(NVIDIA_XCONFIG)
+-	$(STRIP) $<
+ 	$(INSTALL_RULE)
+ 
+ $(NVIDIA_XCONFIG): $(OBJS) $(LIB)
