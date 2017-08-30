@@ -25,7 +25,7 @@ sed -i '/+= -O0 -g/d' utils.mk
 export CFLAGS="%{optflags}"
 export LDFLAGS="%{?__global_ldflags}"
 make %{?_smp_mflags} \
-    DEBUG=1
+    DEBUG=1 \
     NV_VERBOSE=1 \
     PREFIX=%{_prefix} \
     STRIP_CMD=true
