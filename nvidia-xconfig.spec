@@ -1,5 +1,5 @@
 Name:           nvidia-xconfig
-Version:        384.90
+Version:        387.12
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 Epoch:          2
@@ -42,6 +42,9 @@ make %{?_smp_mflags} \
 %{_mandir}/man1/%{name}.1.*
 
 %changelog
+* Thu Oct 05 2017 Simone Caronni <negativo17@gmail.com> - 2:387.12-1
+- Update to 387.12.
+
 * Fri Sep 22 2017 Simone Caronni <negativo17@gmail.com> - 2:384.90-1
 - Update to 384.90.
 
