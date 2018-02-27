@@ -1,8 +1,8 @@
 Name:           nvidia-xconfig
 Version:        390.25
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        NVIDIA X configuration file editor
-Epoch:          2
+Epoch:          3
 License:        GPLv2+
 URL:            http://www.nvidia.com/object/unix.html
 ExclusiveArch:  %{ix86} x86_64
@@ -42,6 +42,9 @@ make %{?_smp_mflags} \
 %{_mandir}/man1/%{name}.1.*
 
 %changelog
+* Tue Feb 27 2018 Simone Caronni <negativo17@gmail.com> - 3:390.25-2
+- Align Epoch with other components.
+
 * Tue Jan 30 2018 Simone Caronni <negativo17@gmail.com> - 2:390.25-1
 - Update to 390.25.
 
