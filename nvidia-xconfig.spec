@@ -19,7 +19,7 @@ BuildRequires:  m4
 
 Requires:       nvidia-driver-%{_named_version}%{?_isa} = %{?epoch}:%{version}
 Provides:       %{_basename} = %{?epoch:%{epoch}:}%{version}-%{release}
-Obsoletes:      %{_basename} < %{?epoch:%{epoch}:}%{version}-%{release}
+#Obsoletes:      %{_basename} < %{?epoch:%{epoch}:}%{version}-%{release}
 
 %description
 %{name} is a command line tool intended to provide basic control over
