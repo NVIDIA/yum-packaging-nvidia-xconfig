@@ -1,6 +1,6 @@
 Name:           nvidia-xconfig
 Version:        450.80.02
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        NVIDIA X configuration file editor
 Epoch:          3
 License:        GPLv2+
@@ -42,6 +42,9 @@ make %{?_smp_mflags} \
 %{_mandir}/man1/%{name}.1.*
 
 %changelog
+* Mon Dec 07 2020 Simone Caronni <negativo17@gmail.com> - 3:450.80.02-2
+- Remove unused patch, use autoseptup macro.
+
 * Tue Oct 06 2020 Simone Caronni <negativo17@gmail.com> - 3:450.80.02-1
 - Update to 450.80.02.
 
