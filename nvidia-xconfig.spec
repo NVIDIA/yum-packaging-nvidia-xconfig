@@ -8,7 +8,6 @@ URL:            http://www.nvidia.com/object/unix.html
 ExclusiveArch:  %{ix86} x86_64
 
 Source0:        https://download.nvidia.com/XFree86/%{name}/%{name}-%{version}.tar.bz2
-Patch0:         %{name}-1.0-default.patch
 
 BuildRequires:  gcc
 BuildRequires:  m4
@@ -18,7 +17,7 @@ BuildRequires:  m4
 configuration options available in the NVIDIA X driver.
 
 %prep
-%setup -q
+%autosetup -p1
 # Remove additional CFLAGS added when enabling DEBUG
 sed -i '/+= -O0 -g/d' utils.mk
 
