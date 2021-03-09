@@ -79,7 +79,7 @@ git clone -b ${branch} https://github.com/NVIDIA/yum-packaging-nvidia-xconfig
 > ex: git clone -b rhel8 https://github.com/NVIDIA/yum-packaging-nvidia-xconfig
 ```
 
-### Download a NVIDIA persistenced tarball:
+### Download a NVIDIA xconfig tarball:
 
 * **Source code** location: [https://github.com/NVIDIA/nvidia-xconfig/releases](https://github.com/NVIDIA/nvidia-xconfig/releases)
 
