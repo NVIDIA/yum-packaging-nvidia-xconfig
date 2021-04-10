@@ -1,5 +1,7 @@
+%define _tar_end %{?extension}%{?!extension:bz2}
+
 Name:           nvidia-xconfig
-Version:        430.14
+Version:        %{?version}%{?!version:430.14}
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 Epoch:          3
@@ -7,7 +9,7 @@ License:        GPLv2+
 URL:            http://www.nvidia.com/object/unix.html
 ExclusiveArch:  %{ix86} x86_64 ppc64le aarch64
 
-Source0:        https://download.nvidia.com/XFree86/%{name}/%{name}-%{version}.tar.bz2
+Source0:        https://download.nvidia.com/XFree86/%{name}/%{name}-%{version}.tar.%{_tar_end}
 Patch0:         %{name}-1.0-default.patch
 
 BuildRequires:  gcc
@@ -20,7 +22,7 @@ Requires:       nvidia-driver%{?_isa} = %{?epoch:%{epoch}:}%{version}
 configuration options available in the NVIDIA X driver.
 
 %prep
-%setup -q
+%setup -q -n nvidia-xconfig-%{version}
 # Remove additional CFLAGS added when enabling DEBUG
 sed -i '/+= -O0 -g/d' utils.mk
 
@@ -49,6 +51,10 @@ make %{?_smp_mflags} \
 %{_mandir}/man1/%{name}.1.*
 
 %changelog
+* Fri Apr 09 2021 Kevin Mittman <kmittman@nvidia.com> - 3:460.00-1
+- Add extension variable for gz or bz2 input tarball file
+- Populate version using variable
+
 * Sat May 18 2019 Simone Caronni <negativo17@gmail.com> - 3:430.14-1
 - Update to 430.14.
 
