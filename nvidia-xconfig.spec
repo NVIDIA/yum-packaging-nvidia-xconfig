@@ -1,17 +1,18 @@
 %global _basename nvidia-xconfig
 
 %define _named_version %{driver_branch}
+%define _tar_end %{?extension}%{?!extension:bz2}
 
 Name:           %{_basename}-%{_named_version}
-Version:        410.73
+Version:        %{?version}%{?!version:410.73}
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 Epoch:          3
 License:        GPLv2+
 URL:            http://www.nvidia.com/object/unix.html
-ExclusiveArch:  %{ix86} x86_64 ppc64le
+ExclusiveArch:  %{ix86} x86_64 ppc64le aarch64
 
-Source0:        https://download.nvidia.com/XFree86/%{_basename}/%{_basename}-%{version}.tar.bz2
+Source0:        https://download.nvidia.com/XFree86/%{_basename}/%{_basename}-%{version}.tar.%{_tar_end}
 Patch0:         %{_basename}-1.0-default.patch
 
 BuildRequires:  gcc
@@ -29,7 +30,7 @@ Obsoletes:      %{_basename} < %{?epoch:%{epoch}:}%{version}-%{release}
 configuration options available in the NVIDIA X driver.
 
 %prep
-%setup -q
+%setup -q -n nvidia-xconfig-%{version}
 # Remove additional CFLAGS added when enabling DEBUG
 sed -i '/+= -O0 -g/d' utils.mk
 
@@ -58,6 +59,11 @@ make %{?_smp_mflags} \
 %{_mandir}/man1/%{_basename}.1.*
 
 %changelog
+* Fri Apr 09 2021 Kevin Mittman <kmittman@nvidia.com> - 3:460.00-1
+- Add extension variable for gz or bz2 input tarball file
+- Unofficial aarch64 support for RHEL/CentOS 7
+- Populate version using variable
+
 * Fri Oct 26 2018 Simone Caronni <negativo17@gmail.com> - 3:410.73-1
 - Update to 410.73.
 
