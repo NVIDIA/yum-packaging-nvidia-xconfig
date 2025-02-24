@@ -1,21 +1,20 @@
-%define _tar_end %{?extension}%{?!extension:bz2}
-
 Name:           nvidia-xconfig
-Version:        %{?version}%{?!version:550.54.14}
+Version:        570.00
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 Epoch:          3
 License:        GPLv2+
 URL:            http://www.nvidia.com/object/unix.html
-ExclusiveArch:  %{ix86} x86_64 aarch64
+ExclusiveArch:  x86_64 aarch64
 
-Source0:        https://download.nvidia.com/XFree86/%{name}/%{name}-%{version}.tar.%{_tar_end}
+Source0:        https://download.nvidia.com/XFree86/%{name}/%{name}-%{version}.tar.bz2
 
 BuildRequires:  gcc
 BuildRequires:  libpciaccess-devel
 BuildRequires:  m4
 
 Requires:       libnvidia-cfg%{?_isa} >= %{?epoch:%{epoch}:}%{version}
+Requires:       xorg-x11-nvidia%{?_isa} >= %{?epoch:%{epoch}:}%{version}
 
 %description
 %{name} is a command line tool intended to provide basic control over
@@ -47,3 +46,5 @@ make %{?_smp_mflags} \
 %license COPYING
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
+
+%changelog
